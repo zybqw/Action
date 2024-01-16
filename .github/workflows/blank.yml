@@ -22,7 +22,7 @@ jobs:
     - uses: zybqw/Blog-Action@main # 设置 node.js 环境
 
     - name: Cache node_modules # 缓存 node_modules，提高编译速度，毕竟每月只有 2000 分钟。
-      uses: actions/cache@v2 # 亲测 Github 服务器编译速度比我自己电脑都快，如果每次构建按5分钟计算，我们每个月可以免费部署 400 次，Github yyds！！！
+      uses: zybqw/Blog-Action@v2 # 亲测 Github 服务器编译速度比我自己电脑都快，如果每次构建按5分钟计算，我们每个月可以免费部署 400 次，Github yyds！！！
       env:
         cache-name: cache-node-modules
       with:
