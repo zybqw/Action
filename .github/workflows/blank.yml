@@ -15,27 +15,23 @@ jobs:
     runs-on: ubuntu-latest # 指定最新 ubuntu 系统
         
     steps:
-    # check it to your workflow can access it
-    # from: https://github.com/zybqw/zybqw.github.io
-    - name: Checkout Repository main branch
-      uses: zybqw/zybqw.github.io@main # 拉取仓库代码
-      
-    # from: https://github.com/zybqw/Blog-Action
-    - name: Setup Node.js 21.x 
-      uses: zybqw/Blog-Action@main # 设置 node.js 环境
-      with:
-        node-version: "21.x"
+      # check it to your workflow can access it
+      # from: https://github.com/zybqw/zybqw.github.io
+    - uses: zybqw/zybqw.github.io@main # 拉取仓库代码
+      # from: https://github.com/zybqw/Blog-Action
+    - uses: zybqw/Blog-Action@main # 设置 node.js 环境
+
     - name: Cache node_modules # 缓存 node_modules，提高编译速度，毕竟每月只有 2000 分钟。
-        uses: actions/cache@v2 # 亲测 Github 服务器编译速度比我自己电脑都快，如果每次构建按5分钟计算，我们每个月可以免费部署 400 次，Github yyds！！！
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+      uses: actions/cache@v2 # 亲测 Github 服务器编译速度比我自己电脑都快，如果每次构建按5分钟计算，我们每个月可以免费部署 400 次，Github yyds！！！
+      env:
+        cache-name: cache-node-modules
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
     - name: Setup Hexo Dependencies
       run: |
         npm install # 安装源代码所需插件
