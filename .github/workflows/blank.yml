@@ -39,10 +39,10 @@ jobs:
           git config --global user.email "%GIT_NAME"
           git config --global user.name "$GIT_EMAIL"
           npm install hexo-cli -g
-          npm install hexo-deployer-git –save
           npm install
 
     - name: Deploy
       run: |
+        rm -rf .deploy_git
         hexo clean
         hexo deploy
