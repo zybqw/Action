@@ -3,7 +3,7 @@ name: DoubleAm's Blog CI/CD # 脚本 workflow 名称
 on:
   push:
     branches: [main, master] # 当监测 main,master 的 push
-    paths: # 监测所有 source 目录下的文件变动，所有 yml,json 后缀文件的变动。
+    paths: # 监测所有 source 目录下的文件变动，所有 yml,json 后缀文件的变动。 
       - '*.json'
       - '**.yml'
       - '**/source/**'
