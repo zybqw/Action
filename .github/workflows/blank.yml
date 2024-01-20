@@ -36,14 +36,14 @@ jobs:
           chmod 700 ~/.ssh
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
-          git remote add origin git@github.com:zybqw/zybqw.github.io.git
-          git config --global user.email "%GIT_NAME"
-          git config --global user.name "$GIT_EMAIL"
-          npm install hexo-cli -g
           npm install
+          npm install hexo-cli -g --save
 
     - name: Deploy
       run: |
+        git config --global user.email "%GIT_NAME"
+        git config --global user.name "$GIT_EMAIL"
         rm -rf .deploy_git
         hexo clean
-        hexo generate -d
+        hexo generate
+        hexo deploy
