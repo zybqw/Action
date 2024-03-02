@@ -46,6 +46,7 @@ jobs:
       - name: Download files
         run: |
           curl -sO https://packagecontrol.io/channel_v3.json
+          curl -sO https://packagecontrol.github.io/channel/channel_v4.json
       - name: Commit files
         run: |
           git config --local user.email "zybqw@qq.com"
