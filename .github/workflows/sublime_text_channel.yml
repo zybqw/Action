@@ -48,11 +48,11 @@ jobs:
           curl -sO https://packagecontrol.io/channel_v3.json
       - name: Commit files
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config --local user.email "zybqw@qq.com"
+          git config --local user.name "zybqw"
           git commit -m "Add changes" -a
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.Action }}
           # `secrets.GITHUB_TOKEN` 是由GITHUB自动生成的
