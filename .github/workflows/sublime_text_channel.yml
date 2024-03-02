@@ -42,7 +42,7 @@ jobs:
     # You can run an unlimited number of steps as long as you are within the workflow usage limits. 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Download files
         run: |
           curl -sO https://packagecontrol.io/channel_v3.json
@@ -54,5 +54,4 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.Action }}
-          # `secrets.GITHUB_TOKEN` 是由GITHUB自动生成的
+          github_token: ${{ secrets.GITHUB_TOKEN }}
