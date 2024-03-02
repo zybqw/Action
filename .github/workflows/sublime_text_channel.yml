@@ -50,6 +50,7 @@ jobs:
         run: |
           git config --local user.email "zybqw@qq.com"
           git config --local user.name "zybqw"
+          git add .
           git commit -m "Add changes" -a
       - name: Push changes
         uses: ad-m/github-push-action@master
