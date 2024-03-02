@@ -15,8 +15,7 @@ name: Auto update data
 # For a list of available events, see "Events that trigger workflows."
 on:
   push:
-    branches:
-      - master
+    branches: main
   schedule:
     - cron: '0 12 * * 1'
 
