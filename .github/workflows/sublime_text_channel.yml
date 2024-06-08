@@ -17,7 +17,7 @@ on:
   push:
     branches: main
   schedule:
-    - cron: '0 0 * * 3'
+    - cron: '0 0 12 L * ?'
 
 # A workflow run is made up of one or more jobs. 
 # Jobs run in parallel by default. To run jobs sequentially, 
